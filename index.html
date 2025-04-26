@@ -34,6 +34,7 @@
 
     /* Sliders */
     .slider {
+      position: relative;
       overflow-x: auto;
       overflow-y: hidden;
       white-space: nowrap;
@@ -57,9 +58,28 @@
       justify-content: center;
       color: #888;
       font-style: italic;
+      transition: transform 0.3s ease;
+    }
+    .slide-track img:hover, .slide-track .placeholder:hover {
+      transform: scale(1.05);
     }
     .slider::-webkit-scrollbar { height: 8px; }
     .slider::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+
+    .slider-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #005b99;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 50%;
+      z-index: 1;
+    }
+    .slider-button.left { left: -20px; }
+    .slider-button.right { right: -20px; }
 
     /* Contact & Footer */
     #contact p { margin-bottom: 10px; }
@@ -131,6 +151,7 @@
   <section id="certifications">
     <h2>Certifications</h2>
     <div class="slider">
+      <button class="slider-button left" onclick="slideLeft('certifications')">&#10094;</button>
       <div class="slide-track">
         <div class="placeholder">Certification 1</div>
         <div class="placeholder">Certification 2</div>
@@ -139,6 +160,7 @@
         <div class="placeholder">Certification 5</div>
         <div class="placeholder">Certification 6</div>
       </div>
+      <button class="slider-button right" onclick="slideRight('certifications')">&#10095;</button>
     </div>
   </section>
 
@@ -159,7 +181,7 @@
   <section id="bugreport">
     <h2>Sample Bug Report</h2>
     <div class="bug-report">
-      <h3>[BXH][Network][Data] Leaderboard data not updating</h3>
+      <h3><strong>TitleBug:</strong> [BXH][Network][Data] Leaderboard data not updating</h3>
       <p><strong>Environment:</strong> Web/Apps | Version 1.0.0</p>
       <p><strong>Steps to Reproduce (EN):</strong></p>
       <ul>
@@ -174,9 +196,10 @@
         <li>Chờ đến chu kỳ cập nhật hoặc tải lại trang.</li>
       </ul>
       <p><strong>Actual Result:</strong> "BXH" data does not update. Notification "Không thể kết nối máy chủ. Xin thử lại." appears.</p>
+      <p><strong>Evidence:</strong> Picture or video link will be placed here.</p>
       <p><strong>Expected Result:</strong> "BXH" data should update in real-time or upon refresh. No error should appear unless there's a real server issue.</p>
       <p><strong>Priority:</strong> High (Affects real-time ranking updates and user experience)</p>
-      <p><strong>Project:</strong> AZA GOLD</p>
+      <p><strong>QA/QC:</strong> Nguyen Tan Huy</p>
     </div>
   </section>
 
@@ -190,6 +213,15 @@
   <footer>
     <p>&copy; 2025 Nguyen Tan Huy | Hosted on GitHub Pages</p>
   </footer>
+
+<script>
+function slideLeft(sectionId) {
+  document.querySelector('#' + sectionId + ' .slider').scrollBy({left: -220, behavior: 'smooth'});
+}
+function slideRight(sectionId) {
+  document.querySelector('#' + sectionId + ' .slider').scrollBy({left: 220, behavior: 'smooth'});
+}
+</script>
 
 </body>
 </html>
