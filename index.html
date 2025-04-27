@@ -33,20 +33,9 @@
     ul { list-style: disc inside; }
 
     /* Sliders */
-    .slider-wrapper {
-      position: relative;
-      margin-bottom: 30px;
-    }
-    .slider {
-      overflow-x: auto;
-      overflow-y: hidden;
-      white-space: nowrap;
-      -webkit-overflow-scrolling: touch;
-      scroll-snap-type: x mandatory;
-    }
-    .slide-track {
-      display: inline-flex;
-    }
+    .slider-wrapper { position: relative; margin-bottom: 30px; }
+    .slider { overflow-x: auto; overflow-y: hidden; white-space: nowrap; -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; }
+    .slide-track { display: inline-flex; }
     .slide-track img, .slide-track .placeholder {
       width: 200px;
       height: 150px;
@@ -63,58 +52,18 @@
       transition: transform 0.3s ease;
       cursor: pointer;
     }
-    .slide-track img:hover, .slide-track .placeholder:hover {
-      transform: scale(1.05);
-    }
-    .slider-button {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: #005b99;
-      color: #fff;
-      border: none;
-      padding: 10px;
-      cursor: pointer;
-      border-radius: 50%;
-      z-index: 10;
-    }
+    .slide-track img:hover, .slide-track .placeholder:hover { transform: scale(1.05); }
+    .slider-button { position: absolute; top: 50%; transform: translateY(-50%); background: #005b99; color: #fff; border: none; padding: 10px; cursor: pointer; border-radius: 50%; z-index: 10; }
     .slider-button.left { left: 0; }
     .slider-button.right { right: 0; }
     .slider::-webkit-scrollbar { height: 8px; }
     .slider::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
 
     /* Modal Lightbox */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0,0,0,0.8);
-    }
-    .modal-content {
-      margin: 5% auto;
-      display: block;
-      width: 80%;
-      max-width: 700px;
-    }
-    .modal-content img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-    .close {
-      position: absolute;
-      top: 30px;
-      right: 50px;
-      color: #fff;
-      font-size: 40px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+    .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.8); }
+    .modal-content { margin: 5% auto; display: block; width: 80%; max-width: 700px; }
+    .modal-content img { width: 100%; height: auto; border-radius: 8px; }
+    .close { position: absolute; top: 30px; right: 50px; color: #fff; font-size: 40px; font-weight: bold; cursor: pointer; }
 
     /* Contact & Footer */
     #contact p { margin-bottom: 10px; }
@@ -152,45 +101,45 @@
     I excel at detailed bug reporting, clear communication with developers, and driving quality improvements in agile teams.
   </p>
 </section>
-  
+
 <section id="experience" class="experience">
-     <h2>Experience</h2>
- 
-     <div class="job">
-       <h3>Game Tester – Product, Hexpion Studio</h3>
-       <p><em>Oct 2023 – Mar 2024</em></p>
-       <ul>
-         <li>Identified and reported critical game errors with developer-level detail.</li>
-         <li>Managed bug tracking & QA status using Trello and SourceTree.</li>
-         <li>Conducted gameplay & UX/UI testing; provided Unity Engine insights.</li>
-         <li>Researched and wrote comprehensive manual test cases.</li>
-       </ul>
-     </div>
- 
-     <div class="job">
-       <h3>Manual Software Tester (Outsource), Spectaq Software Ltd</h3>
-       <p><em>Jun 2024 – Mar 2025</em></p>
-       <ul>
-         <li>Performed multi-platform manual testing (iOS, Android, WebApp) and API/WebSocket testing via Postman.</li>
-         <li>Developed & executed test cases in Testmo; captured evidence with OBS Studio & Veed.io.</li>
-         <li>Collaborated with clients in agile meetings to gather requirements and feedback.</li>
-         <li>Logged, tracked, and triaged bugs in Jira and Google Sheets for timely resolution.</li>
-       </ul>
-     </div>
-   </section>
- 
-   <section id="skills" class="skills">
-     <h2>Core Skills</h2>
-     <ul>
-       <li><strong>Manual Testing:</strong> test-case design, exploratory testing, UX/UI evaluation</li>
-       <li><strong>Bug Tracking:</strong> Jira, Trello, Google Sheets</li>
-       <li><strong>Test Management:</strong> Testmo</li>
-       <li><strong>API Testing:</strong> Postman (REST, WebSocket)</li>
-       <li><strong>Tools & Platforms:</strong> OBS Studio, Veed.io, SourceTree, Unity Engine</li>
-       <li><strong>Soft Skills:</strong> communication, teamwork, problem-solving, agile methodology</li>
-     </ul>
-   </section>
- 
+  <h2>Experience</h2>
+
+  <div class="job">
+    <h3>Game Tester – Product, Hexpion Studio</h3>
+    <p><em>Oct 2023 – Mar 2024</em></p>
+    <ul>
+      <li>Identified and reported critical game errors with developer-level detail.</li>
+      <li>Managed bug tracking & QA status using Trello and SourceTree.</li>
+      <li>Conducted gameplay & UX/UI testing; provided Unity Engine insights.</li>
+      <li>Researched and wrote comprehensive manual test cases.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <h3>Manual Software Tester (Outsource), Spectaq Software Ltd</h3>
+    <p><em>Jun 2024 – Apr 2025</em></p>
+    <ul>
+      <li>Performed multi-platform manual testing (iOS, Android, WebApp) and API/WebSocket testing via Postman.</li>
+      <li>Developed & executed test cases in Testmo; captured evidence with OBS Studio & Veed.io.</li>
+      <li>Collaborated with clients in agile meetings to gather requirements and feedback.</li>
+      <li>Logged, tracked, and triaged bugs in Jira and Google Sheets for timely resolution.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="skills" class="skills">
+  <h2>Core Skills</h2>
+  <ul>
+    <li><strong>Manual Testing:</strong> test-case design, exploratory testing, UX/UI evaluation</li>
+    <li><strong>Bug Tracking:</strong> Jira, Trello, Google Sheets</li>
+    <li><strong>Test Management:</strong> Testmo</li>
+    <li><strong>API Testing:</strong> Postman (REST, WebSocket)</li>
+    <li><strong>Tools & Platforms:</strong> OBS Studio, Veed.io, SourceTree, Unity Engine</li>
+    <li><strong>Soft Skills:</strong> communication, teamwork, problem-solving, agile methodology</li>
+  </ul>
+</section>
+
 <section id="certifications">
   <h2>Certifications</h2>
   <div class="slider-wrapper">
@@ -281,6 +230,17 @@ function openModal(element) {
 function closeModal() {
   document.getElementById("myModal").style.display = "none";
 }
+
+// Clear cache and cookies on page unload
+window.addEventListener('unload', function() {
+  // Clear sessionStorage and localStorage
+  sessionStorage.clear();
+  localStorage.clear();
+  // Notify server (if needed)
+  if (navigator.sendBeacon) {
+    navigator.sendBeacon('/clear-cache');
+  }
+});
 </script>
 
 </body>
