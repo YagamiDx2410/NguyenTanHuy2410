@@ -10,7 +10,7 @@
     body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height:1.6; color:#333; background:#f9f9f9; }
     a { color: #007acc; text-decoration: none; }
     a:hover { text-decoration: underline; }
-    header, section, footer { padding: 40px 20px; max-width:1000px; margin: auto; }
+    header, section, footer { padding: 40px 20px; max-width:1000px; margin: auto; position: relative; }
 
     /* Header */
     header { background: #005b99; color: #fff; text-align: center; padding-bottom: 60px; padding-top: 80px; }
@@ -33,14 +33,16 @@
     ul { list-style: disc inside; }
 
     /* Sliders */
-    .slider {
+    .slider-wrapper {
       position: relative;
+      margin-bottom: 30px;
+    }
+    .slider {
       overflow-x: auto;
       overflow-y: hidden;
       white-space: nowrap;
       -webkit-overflow-scrolling: touch;
       scroll-snap-type: x mandatory;
-      margin-bottom: 30px;
     }
     .slide-track {
       display: inline-flex;
@@ -59,13 +61,11 @@
       color: #888;
       font-style: italic;
       transition: transform 0.3s ease;
+      cursor: pointer;
     }
     .slide-track img:hover, .slide-track .placeholder:hover {
       transform: scale(1.05);
     }
-    .slider::-webkit-scrollbar { height: 8px; }
-    .slider::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
-
     .slider-button {
       position: absolute;
       top: 50%;
@@ -76,10 +76,45 @@
       padding: 10px;
       cursor: pointer;
       border-radius: 50%;
-      z-index: 1;
+      z-index: 10;
     }
-    .slider-button.left { left: -20px; }
-    .slider-button.right { right: -20px; }
+    .slider-button.left { left: 0; }
+    .slider-button.right { right: 0; }
+    .slider::-webkit-scrollbar { height: 8px; }
+    .slider::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+
+    /* Modal Lightbox */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
+    }
+    .modal-content {
+      margin: 5% auto;
+      display: block;
+      width: 80%;
+      max-width: 700px;
+    }
+    .modal-content img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .close {
+      position: absolute;
+      top: 30px;
+      right: 50px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
     /* Contact & Footer */
     #contact p { margin-bottom: 10px; }
@@ -88,131 +123,103 @@
 </head>
 <body>
 
-  <header>
-    <h1>Nguyen Tan Huy</h1>
-    <p>QA/QC Professional (Manual Testing)</p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#skills">Skills</a>
-      <a href="#certifications">Certifications</a>
-      <a href="#demos">Demos</a>
-      <a href="#bugreport">Bug Report</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<!-- Modal for full image -->
+<div id="myModal" class="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+    <img id="modalImage" src="" alt="Full View">
+  </div>
+</div>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      I'm a dedicated QA/QC Tester with 2 years of manual testing experience in game and multi-platform software projects.
-      I excel at detailed bug reporting, clear communication with developers, and driving quality improvements in agile teams.
-    </p>
-  </section>
+<header>
+  <h1>Nguyen Tan Huy</h1>
+  <p>QA/QC Professional (Manual Testing)</p>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#demos">Demos</a>
+    <a href="#bugreport">Bug Report</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-  <section id="experience" class="experience">
-    <h2>Experience</h2>
+<section id="about">
+  <h2>About Me</h2>
+  <p>
+    I'm a dedicated QA/QC Tester with 2 years of manual testing experience in game and multi-platform software projects.
+    I excel at detailed bug reporting, clear communication with developers, and driving quality improvements in agile teams.
+  </p>
+</section>
 
-    <div class="job">
-      <h3>Game Tester – Product, Hexpion Studio</h3>
-      <p><em>Oct 2023 – Mar 2024</em></p>
-      <ul>
-        <li>Identified and reported critical game errors with developer-level detail.</li>
-        <li>Managed bug tracking & QA status using Trello and SourceTree.</li>
-        <li>Conducted gameplay & UX/UI testing; provided Unity Engine insights.</li>
-        <li>Researched and wrote comprehensive manual test cases.</li>
-      </ul>
+<section id="certifications">
+  <h2>Certifications</h2>
+  <div class="slider-wrapper">
+    <button class="slider-button left" onclick="slideLeft('certifications')">&#10094;</button>
+    <div class="slider">
+      <div class="slide-track">
+        <div class="placeholder" onclick="openModal(this)">Certification 1</div>
+        <div class="placeholder" onclick="openModal(this)">Certification 2</div>
+        <div class="placeholder" onclick="openModal(this)">Certification 3</div>
+        <div class="placeholder" onclick="openModal(this)">Certification 4</div>
+        <div class="placeholder" onclick="openModal(this)">Certification 5</div>
+        <div class="placeholder" onclick="openModal(this)">Certification 6</div>
+      </div>
     </div>
+    <button class="slider-button right" onclick="slideRight('certifications')">&#10095;</button>
+  </div>
+</section>
 
-    <div class="job">
-      <h3>Manual Software Tester (Outsource), Spectaq Software Ltd</h3>
-      <p><em>Jun 2024 – Mar 2025</em></p>
-      <ul>
-        <li>Performed multi-platform manual testing (iOS, Android, WebApp) and API/WebSocket testing via Postman.</li>
-        <li>Developed & executed test cases in Testmo; captured evidence with OBS Studio & Veed.io.</li>
-        <li>Collaborated with clients in agile meetings to gather requirements and feedback.</li>
-        <li>Logged, tracked, and triaged bugs in Jira and Google Sheets for timely resolution.</li>
-      </ul>
+<section id="demos">
+  <h2>Project Demos</h2>
+  <div class="slider">
+    <div class="slide-track">
+      <div class="placeholder">Jira Bug List</div>
+      <div class="placeholder">Bug Demo Video</div>
+      <div class="placeholder">Testmo Report</div>
+      <div class="placeholder">Unity Insight</div>
+      <div class="placeholder">Additional Demo 1</div>
+      <div class="placeholder">Additional Demo 2</div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="skills" class="skills">
-    <h2>Core Skills</h2>
+<section id="bugreport">
+  <h2>Sample Bug Report</h2>
+  <div class="bug-report">
+    <h3><strong>TitleBug:</strong> [BXH][Network][Data] Leaderboard data not updating</h3>
+    <p><strong>Environment:</strong> Web/Apps | Version 1.0.0</p>
+    <p><strong>Steps to Reproduce (EN):</strong></p>
     <ul>
-      <li><strong>Manual Testing:</strong> test-case design, exploratory testing, UX/UI evaluation</li>
-      <li><strong>Bug Tracking:</strong> Jira, Trello, Google Sheets</li>
-      <li><strong>Test Management:</strong> Testmo</li>
-      <li><strong>API Testing:</strong> Postman (REST, WebSocket)</li>
-      <li><strong>Tools & Platforms:</strong> OBS Studio, Veed.io, SourceTree, Unity Engine</li>
-      <li><strong>Soft Skills:</strong> communication, teamwork, problem-solving, agile methodology</li>
+      <li>Navigate to "BXH" (Leaderboard) section.</li>
+      <li>Observe the displayed ranking data.</li>
+      <li>Wait for an update cycle or refresh the page.</li>
     </ul>
-  </section>
+    <p><strong>Steps to Reproduce (VN):</strong></p>
+    <ul>
+      <li>Truy cập vào mục "BXH".</li>
+      <li>Quan sát dữ liệu xếp hạng hiển thị.</li>
+      <li>Chờ đến chu kỳ cập nhật hoặc tải lại trang.</li>
+    </ul>
+    <p><strong>Actual Result:</strong> "BXH" data does not update. Notification "Không thể kết nối máy chủ. Xin thử lại." appears.</p>
+    <p><strong>Evidence:</strong> Picture or video link will be placed here.</p>
+    <p><strong>Expected Result:</strong> "BXH" data should update in real-time or upon refresh. No error should appear unless there's a real server issue.</p>
+    <p><strong>Priority:</strong> High (Affects real-time ranking updates and user experience)</p>
+    <p><strong>QA/QC:</strong> Nguyen Tan Huy</p>
+  </div>
+</section>
 
-  <section id="certifications">
-    <h2>Certifications</h2>
-    <div class="slider">
-      <button class="slider-button left" onclick="slideLeft('certifications')">&#10094;</button>
-      <div class="slide-track">
-        <div class="placeholder">Certification 1</div>
-        <div class="placeholder">Certification 2</div>
-        <div class="placeholder">Certification 3</div>
-        <div class="placeholder">Certification 4</div>
-        <div class="placeholder">Certification 5</div>
-        <div class="placeholder">Certification 6</div>
-      </div>
-      <button class="slider-button right" onclick="slideRight('certifications')">&#10095;</button>
-    </div>
-  </section>
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: <a href="mailto:nguyentanhuy1096@gmail.com">nguyentanhuy1096@gmail.com</a></p>
+  <p>Phone: +84 936 329 796</p>
+  <p>LinkedIn: <a href="https://linkedin.com/in/nguyentanhuy" target="_blank">linkedin.com/in/nguyentanhuy</a></p>
+</section>
 
-  <section id="demos">
-    <h2>Project Demos</h2>
-    <div class="slider">
-      <div class="slide-track">
-        <div class="placeholder">Jira Bug List</div>
-        <div class="placeholder">Bug Demo Video</div>
-        <div class="placeholder">Testmo Report</div>
-        <div class="placeholder">Unity Insight</div>
-        <div class="placeholder">Additional Demo 1</div>
-        <div class="placeholder">Additional Demo 2</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="bugreport">
-    <h2>Sample Bug Report</h2>
-    <div class="bug-report">
-      <h3><strong>TitleBug:</strong> [BXH][Network][Data] Leaderboard data not updating</h3>
-      <p><strong>Environment:</strong> Web/Apps | Version 1.0.0</p>
-      <p><strong>Steps to Reproduce (EN):</strong></p>
-      <ul>
-        <li>Navigate to "BXH" (Leaderboard) section.</li>
-        <li>Observe the displayed ranking data.</li>
-        <li>Wait for an update cycle or refresh the page.</li>
-      </ul>
-      <p><strong>Steps to Reproduce (VN):</strong></p>
-      <ul>
-        <li>Truy cập vào mục "BXH".</li>
-        <li>Quan sát dữ liệu xếp hạng hiển thị.</li>
-        <li>Chờ đến chu kỳ cập nhật hoặc tải lại trang.</li>
-      </ul>
-      <p><strong>Actual Result:</strong> "BXH" data does not update. Notification "Không thể kết nối máy chủ. Xin thử lại." appears.</p>
-      <p><strong>Evidence:</strong> Picture or video link will be placed here.</p>
-      <p><strong>Expected Result:</strong> "BXH" data should update in real-time or upon refresh. No error should appear unless there's a real server issue.</p>
-      <p><strong>Priority:</strong> High (Affects real-time ranking updates and user experience)</p>
-      <p><strong>QA/QC:</strong> Nguyen Tan Huy</p>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:nguyentanhuy1096@gmail.com">nguyentanhuy1096@gmail.com</a></p>
-    <p>Phone: +84 936 329 796</p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/nguyentanhuy" target="_blank">linkedin.com/in/nguyentanhuy</a></p>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Nguyen Tan Huy | Hosted on GitHub Pages</p>
-  </footer>
+<footer>
+  <p>&copy; 2025 Nguyen Tan Huy | Hosted on GitHub Pages</p>
+</footer>
 
 <script>
 function slideLeft(sectionId) {
@@ -220,6 +227,21 @@ function slideLeft(sectionId) {
 }
 function slideRight(sectionId) {
   document.querySelector('#' + sectionId + ' .slider').scrollBy({left: 220, behavior: 'smooth'});
+}
+
+function openModal(element) {
+  var modal = document.getElementById("myModal");
+  var modalImg = document.getElementById("modalImage");
+  if (element.tagName.toLowerCase() === 'img') {
+    modalImg.src = element.src;
+  } else {
+    modalImg.src = "https://via.placeholder.com/700x400?text=" + encodeURIComponent(element.innerText);
+  }
+  modal.style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
 }
 </script>
 
