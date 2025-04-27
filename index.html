@@ -128,16 +128,16 @@
   </div>
 </section>
 
-<section id="skills">
-  <div class="skills">
+<section id="skills" class="skills">
+  <div class="job">
   <h2>Core Skills</h2>
   <ul>
-    <li><strong>Manual Testing:</strong> test-case design, exploratory testing, UX/UI evaluation</li>
-    <li><strong>Bug Tracking:</strong> Jira, Trello, Google Sheets</li>
-    <li><strong>Test Management:</strong> Testmo</li>
-    <li><strong>API Testing:</strong> Postman (REST, WebSocket)</li>
-    <li><strong>Tools & Platforms:</strong> OBS Studio, Veed.io, SourceTree, Unity Engine</li>
-    <li><strong>Soft Skills:</strong> communication, teamwork, problem-solving, agile methodology</li>
+    <li><strong>Manual Testing:</strong> Design and execute detailed test cases, exploratory testing, ensuring software meets UI/UX standards and functionality.</li>
+    <li><strong>Bug Tracking:</strong> Report, track, and manage defects using Jira, Trello, and Google Sheets to ensure timely resolution and smooth developer communication.</li>
+    <li><strong>Test Management:</strong> Organize, run, and report test cycles effectively using Testmo to manage QA processes systematically.</li>
+    <li><strong>API Testing:</strong> Validate API endpoints and WebSocket flows with Postman, ensuring reliable and secure data interactions.</li>
+    <li><strong>Tools & Platforms:</strong> Record and demonstrate bug scenarios via OBS Studio and Veed.io; manage source versioning with SourceTree; contribute Unity Engine insights for game quality enhancement.</li>
+    <li><strong>Soft Skills:</strong> Communicate efficiently, collaborate across teams, analyze and troubleshoot issues logically, adapting well in Agile environments.</li>
   </ul>
   </div>
 </section>
@@ -211,6 +211,7 @@
 </footer>
 
 <script>
+  
 function slideLeft(sectionId) {
   document.querySelector('#' + sectionId + ' .slider').scrollBy({left: -220, behavior: 'smooth'});
 }
@@ -233,16 +234,25 @@ function closeModal() {
   document.getElementById("myModal").style.display = "none";
 }
 
-// Clear cache and cookies on page unload
-window.addEventListener('unload', function() {
-  // Clear sessionStorage and localStorage
-  sessionStorage.clear();
-  localStorage.clear();
-  // Notify server (if needed)
-  if (navigator.sendBeacon) {
-    navigator.sendBeacon('/clear-cache');
+  // Force reload if file updated
+  if (performance.navigation.type === 1) {
+    fetch(window.location.href, { cache: "no-store" })
+      .then(response => {
+        if (!response.ok) location.reload(true);
+      });
   }
-});
+  
+  // Clear cache and cookies on page unload
+  window.addEventListener('unload', function() {
+    // Clear sessionStorage and localStorage
+    sessionStorage.clear();
+    localStorage.clear();
+    // Notify server (if needed)
+    if (navigator.sendBeacon) {
+      navigator.sendBeacon('/clear-cache');
+    }
+  });
+  
 </script>
 
 </body>
