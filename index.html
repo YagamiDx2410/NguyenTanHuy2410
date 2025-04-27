@@ -265,6 +265,15 @@ function closeModal() {
     }
   });
   
+(function() {
+  if (!window.location.search.includes('v=')) {
+    const now = new Date();
+    const version = `${now.getFullYear()}${now.getMonth()+1}${now.getDate()}${now.getHours()}${now.getMinutes()}`;
+    window.location.replace(window.location.pathname + '?v=' + version);
+  }
+})();
+
+
 </script>
 
 </body>
