@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>QA/QC Tester Portfolio</title>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <style>
     /* Reset & Base */
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -60,8 +63,8 @@
     .slider::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
 
     /* Modal Lightbox */
-    .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.8); }
-    .modal-content { margin: 5% auto; display: block; width: 80%; max-width: 700px; }
+    .modal { display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.8); }
+    .modal-content { margin:5% auto; width:80%; max-width:900px; background:#fff; padding:20px; border-radius:8px; overflow:hidden; }
     .modal-content img { width: 100%; height: auto; border-radius: 8px; }
     .close { position: absolute; top: 30px; right: 50px; color: #fff; font-size: 40px; font-weight: bold; cursor: pointer; }
 
@@ -141,7 +144,12 @@
   </ul>
   </div>
 </section>
-
+<!-- Modal Popup -->
+<div id="myModal" class="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <div id="modalContent" class="modal-content"></div>
+</div>
+  
 <section id="certifications">
   <h2>Certifications</h2>
   <div class="slider-wrapper">
@@ -162,15 +170,19 @@
 
 <section id="demos">
   <h2>Project Demos</h2>
-  <div class="slider">
-    <div class="slide-track">
-      <div class="placeholder">Jira Bug List</div>
-      <div class="placeholder">Bug Demo Video</div>
-      <div class="placeholder">Testmo Report</div>
-      <div class="placeholder">Unity Insight</div>
-      <div class="placeholder">Additional Demo 1</div>
-      <div class="placeholder">Additional Demo 2</div>
+  <div class="slider-wrapper">
+    <button class="slider-button left" onclick="slideLeft('demos')">&#10094;</button>
+    <div class="slider">
+      <div class="slide-track">
+        <div class="placeholder" onclick="openModal(this)">Jira Bug List</div>
+        <div class="placeholder" onclick="openModal(this)">Bug Demo Video</div>
+        <div class="placeholder" onclick="openModal(this)">Testmo Report</div>
+        <div class="placeholder" onclick="openModal(this)">Unity Insight</div>
+        <div class="placeholder" onclick="openModal(this)" data-type="pdf" data-src="files/demo1.pdf">Demo Report (PDF)</div>
+        <div class="placeholder" onclick="openModal(this)" data-type="pdf" data-src="files/demo2.pdf">Extra Demo (PDF)</div>
+      </div>
     </div>
+    <button class="slider-button right" onclick="slideRight('demos')">&#10095;</button>
   </div>
 </section>
 
@@ -221,11 +233,11 @@ function slideRight(sectionId) {
 
 function openModal(element) {
   var modal = document.getElementById("myModal");
-  var modalImg = document.getElementById("modalImage");
-  if (element.tagName.toLowerCase() === 'img') {
-    modalImg.src = element.src;
+  var modalContent = document.getElementById("modalContent");
+  if (element.dataset.type === "pdf") {
+    modalContent.innerHTML = '<div style="height:90vh; overflow-y: auto;"><iframe src="' + element.dataset.src + '" style="width:100%; height:100%; border:none;"></iframe></div>';
   } else {
-    modalImg.src = "https://via.placeholder.com/700x400?text=" + encodeURIComponent(element.innerText);
+    modalContent.innerHTML = '<img src="https://via.placeholder.com/700x400?text=' + encodeURIComponent(element.innerText) + '" style="width:100%;height:auto;border-radius:8px;" />';
   }
   modal.style.display = "block";
 }
