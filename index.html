@@ -25,32 +25,17 @@
     /* Section Titles */
     section h2 { font-size: 1.8em; margin-bottom: 20px; position: relative; }
     section h2::after { content: ''; width: 50px; height: 3px; background: #005b99; position: absolute; left: 0; bottom: -5px; }
-    .skills h3 {
-      margin-top: 20px;
-      color: #005b99;
-    }
-    .skills ul {
-      margin-bottom: 20px;
-      padding-left: 20px;
-      list-style: disc;
-    }
-    .skills ul li {
-      margin-bottom: 10px;
-      line-height: 1.6;
-      transition: all 0.3s ease;
-    }
-    .skills ul li:hover {
-      color: #007acc;
-      transform: translateX(5px);
-    }
 
     /* About */
     #about { background: #fff; margin-top: -20px; padding-top: 60px; border-top-left-radius: 10px; border-top-right-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); }
 
     /* Experience & Skills */
-    .experience .job, .skills ul li, .bug-report { background: #fff; margin-bottom: 20px; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-    .job h3, .bug-report h3 { font-size: 1.2em; color: #005b99; }
+    .experience .job, .skill-group, .bug-report { background: #fff; margin-bottom: 20px; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+    .job h3, .bug-report h3, .skills h3 { font-size: 1.2em; color: #005b99; }
     .job p, .bug-report p { font-style: italic; color: #666; margin-bottom: 10px; }
+    .skills ul { margin-bottom: 20px; padding-left: 20px; list-style: disc; }
+    .skills ul li { margin-bottom: 10px; line-height: 1.6; transition: all 0.3s ease; }
+    .skills ul li:hover { color: #007acc; transform: translateX(5px); }
     ul { list-style: disc inside; }
 
     /* Sliders */
@@ -89,18 +74,9 @@
     /* Contact & Footer */
     #contact p { margin-bottom: 10px; }
     footer { text-align: center; font-size: 0.9em; color: #666; margin-top: 40px; }
-    
   </style>
 </head>
 <body>
-
-<!-- Modal for full image -->
-<div id="myModal" class="modal">
-  <span class="close" onclick="closeModal()">&times;</span>
-  <div class="modal-content">
-    <img id="modalImage" src="" alt="Full View">
-  </div>
-</div>
 
 <header>
   <h1>Nguyen Tan Huy</h1>
@@ -127,7 +103,6 @@
 
 <section id="experience" class="experience">
   <h2>Experience</h2>
-
   <div class="job">
     <h3>Game Tester – Product, Hexpion Studio</h3>
     <p><em>Oct 2023 – Mar 2024</em></p>
@@ -138,7 +113,6 @@
       <li>Researched and wrote comprehensive manual test cases.</li>
     </ul>
   </div>
-
   <div class="job">
     <h3>Manual Software Tester (Outsource), Spectaq Software Ltd</h3>
     <p><em>Jun 2024 – Apr 2025</em></p>
@@ -153,118 +127,46 @@
 
 <section id="skills" class="skills">
   <h2>Core Skills</h2>
-  
   <div class="skill-group">
-  <h3>Manual Testing</h3>
-  <ul>
-    <li>Design and execute detailed test cases, exploratory testing for UI/UX and functionality assurance.</li>
-    <li>Experienced in usability and functional testing of mobile and web applications.</li>
-  </ul>
-  </div>
-
-  <div class="skill-group">
-  <h3>Test Analysis & Design</h3>
-  <ul>
-    <li>Break down product features into testable units, create state transition diagrams.</li>
-    <li>Apply equivalence partitioning, boundary value analysis to generate effective input data sets.</li>
-  </ul>
-  </div>
-    
-  <div class="skill-group">
-  <h3>API Testing</h3>
-  <ul>
-    <li>Validate REST and WebSocket APIs using Postman, ensuring data integrity and performance.</li>
-    <li>Simulate requests and analyze responses to verify server behavior and API robustness.</li>
-  </ul>
-  </div>
-    
-  <div class="skill-group">
-  <h3>Exploratory Testing</h3>
-  <ul>
-    <li>Apply session-based testing techniques and Whittaker’s test tours to discover hidden issues.</li>
-  </ul>
-  </div>
-    
-  <div class="skill-group">
-  <h3>Test Documentation</h3>
-  <ul>
-    <li>Create comprehensive test plans, detailed bug reports, and session reports.</li>
-    <li>Build reusable checklists and test suites for efficient regression testing.</li>
-  </ul>
-  </div>
-
-  <div class="skill-group">
-  <h3>Tools & Platforms</h3>
-  <ul>
-    <li>Bug tracking with Jira, Trello; test management with Testmo; evidence recording with OBS Studio and Veed.io.</li>
-    <li>Source control via SourceTree; game QA testing with Unity Engine.</li>
-  </ul>
-  </div>
-</section>
-<!-- Modal Popup -->
-<div id="myModal" class="modal">
-  <span class="close" onclick="closeModal()">&times;</span>
-  <div id="modalContent" class="modal-content"></div>
-</div>
-  
-<section id="certifications">
-  <h2>Certifications</h2>
-  <div class="slider-wrapper">
-    <button class="slider-button left" onclick="slideLeft('certifications')">&#10094;</button>
-    <div class="slider">
-      <div class="slide-track">
-        <div class="placeholder" onclick="openModal(this)">Certification 1</div>
-        <div class="placeholder" onclick="openModal(this)">Certification 2</div>
-        <div class="placeholder" onclick="openModal(this)">Certification 3</div>
-        <div class="placeholder" onclick="openModal(this)">Certification 4</div>
-        <div class="placeholder" onclick="openModal(this)">Certification 5</div>
-        <div class="placeholder" onclick="openModal(this)">Certification 6</div>
-      </div>
-    </div>
-    <button class="slider-button right" onclick="slideRight('certifications')">&#10095;</button>
-  </div>
-</section>
-
-<section id="demos">
-  <h2>Project Demos</h2>
-  <div class="slider-wrapper">
-    <button class="slider-button left" onclick="slideLeft('demos')">&#10094;</button>
-    <div class="slider">
-      <div class="slide-track">
-        <div class="placeholder" onclick="openModal(this)">Jira Bug List</div>
-        <div class="placeholder" onclick="openModal(this)">Bug Demo Video</div>
-        <div class="placeholder" onclick="openModal(this)">Testmo Report</div>
-        <div class="placeholder" onclick="openModal(this)">Unity Insight</div>
-        <div class="placeholder" onclick="openModal(this)" data-type="pdf" data-src="files/demo1.pdf">Demo Report (PDF)</div>
-        <div class="placeholder" onclick="openModal(this)" data-type="pdf" data-src="files/demo2.pdf">Extra Demo (PDF)</div>
-      </div>
-    </div>
-    <button class="slider-button right" onclick="slideRight('demos')">&#10095;</button>
-  </div>
-</section>
-
-<section id="bugreport">
-  <h2>Sample Bug Report</h2>
-  <div class="bug-report">
-    <h3><strong>TitleBug:</strong> [BXH][Network][Data] Leaderboard data not updating</h3>
-    <p><strong>Environment:</strong> Web/Apps | Version 1.0.0</p>
-    <p><strong>Steps to Reproduce (EN):</strong></p>
+    <h3>Manual Testing</h3>
     <ul>
-      <li>Navigate to "BXH" (Leaderboard) section.</li>
-      <li>Observe the displayed ranking data.</li>
-      <li>Wait for an update cycle or refresh the page.</li>
+      <li>Design and execute detailed test cases, exploratory testing for UI/UX and functionality assurance.</li>
+      <li>Experienced in usability and functional testing of mobile and web applications.</li>
     </ul>
-    <p><strong>Steps to Reproduce (VN):</strong></p>
+  </div>
+  <div class="skill-group">
+    <h3>Test Analysis & Design</h3>
     <ul>
-      <li>Truy cập vào mục "BXH".</li>
-      <li>Quan sát dữ liệu xếp hạng hiển thị.</li>
-      <li>Chờ đến chu kỳ cập nhật hoặc tải lại trang.</li>
+      <li>Break down product features into testable units, create state transition diagrams.</li>
+      <li>Apply equivalence partitioning, boundary value analysis to generate effective input data sets.</li>
     </ul>
-    <p><strong>Actual Result:</strong> "BXH" data does not update. Notification "Không thể kết nối máy chủ. Xin thử lại." appears.</p>
-    <p><strong>Evidence:</strong> Picture or video link will be placed here.</p>
-    <p><strong>Expected Result:</strong> "BXH" data should update in real-time or upon refresh. No error should appear unless there's a real server issue.</p>
-    <p><strong>Priority:</strong> High (Affects real-time ranking updates and user experience)</p>
-    <p><strong>QA/QC:</strong> Nguyen Tan Huy</p>
+  </div>
+  <div class="skill-group">
+    <h3>API Testing</h3>
+    <ul>
+      <li>Validate REST and WebSocket APIs using Postman, ensuring data integrity and performance.</li>
+      <li>Simulate requests and analyze responses to verify server behavior and API robustness.</li>
+    </ul>
+  </div>
+  <div class="skill-group">
+    <h3>Exploratory Testing</h3>
+    <ul>
+      <li>Apply session-based testing techniques and Whittaker’s test tours to discover hidden issues.</li>
+    </ul>
+  </div>
+  <div class="skill-group">
+    <h3>Test Documentation</h3>
+    <ul>
+      <li>Create comprehensive test plans, detailed bug reports, and session reports.</li>
+      <li>Build reusable checklists and test suites for efficient regression testing.</li>
+    </ul>
+  </div>
+  <div class="skill-group">
+    <h3>Tools & Platforms</h3>
+    <ul>
+      <li>Bug tracking with Jira, Trello; test management with Testmo; evidence recording with OBS Studio and Veed.io.</li>
+      <li>Source control via SourceTree; game QA testing with Unity Engine.</li>
+    </ul>
   </div>
 </section>
 
@@ -280,14 +182,12 @@
 </footer>
 
 <script>
-  
 function slideLeft(sectionId) {
   document.querySelector('#' + sectionId + ' .slider').scrollBy({left: -220, behavior: 'smooth'});
 }
 function slideRight(sectionId) {
   document.querySelector('#' + sectionId + ' .slider').scrollBy({left: 220, behavior: 'smooth'});
 }
-
 function openModal(element) {
   var modal = document.getElementById("myModal");
   var modalContent = document.getElementById("modalContent");
@@ -298,30 +198,14 @@ function openModal(element) {
   }
   modal.style.display = "block";
 }
-
 function closeModal() {
   document.getElementById("myModal").style.display = "none";
 }
-
-  // Force reload if file updated
-  if (performance.navigation.type === 1) {
-    fetch(window.location.href, { cache: "no-store" })
-      .then(response => {
-        if (!response.ok) location.reload(true);
-      });
-  }
-  
-  // Clear cache and cookies on page unload
-  window.addEventListener('unload', function() {
-    // Clear sessionStorage and localStorage
-    sessionStorage.clear();
-    localStorage.clear();
-    // Notify server (if needed)
-    if (navigator.sendBeacon) {
-      navigator.sendBeacon('/clear-cache');
-    }
-  });
-  
+// Clear cache and force reload
+window.addEventListener('unload', function() {
+  sessionStorage.clear();
+  localStorage.clear();
+});
 (function() {
   if (!window.location.search.includes('v=')) {
     const now = new Date();
@@ -329,9 +213,13 @@ function closeModal() {
     window.location.replace(window.location.pathname + '?v=' + version);
   }
 })();
-
-
 </script>
+
+<!-- Single Modal -->
+<div id="myModal" class="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <div id="modalContent" class="modal-content"></div>
+</div>
 
 </body>
 </html>
