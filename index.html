@@ -1,225 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>QA/QC Tester Portfolio</title>
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
-  <style>
-    /* Reset & Base */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height:1.6; color:#333; background:#f9f9f9; }
-    a { color: #007acc; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    header, section, footer { padding: 40px 20px; max-width:1000px; margin: auto; position: relative; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QA/QC Tester Portfolio</title>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<style>
+/* Base Styles */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f9f9f9; color: #333; line-height: 1.6; }
+a { color: #007acc; text-decoration: none; }
+a:hover { text-decoration: underline; }
+header, section, footer { padding: 40px 20px; max-width: 1000px; margin: auto; }
 
-    /* Header */
-    header { background: #005b99; color: #fff; text-align: center; padding-bottom: 60px; padding-top: 80px; }
-    header h1 { font-size: 2.5em; margin-bottom: 10px; }
-    header p { font-size: 1.2em; }
-    nav { margin-top: 20px; }
-    nav a { margin: 0 15px; color: #fff; font-weight: bold; }
+/* Header */
+header { background: #005b99; color: white; text-align: center; padding: 80px 20px 60px; }
+header h1 { font-size: 2.5em; }
+header p { font-size: 1.2em; margin-top: 10px; }
+nav { margin-top: 20px; }
+nav a { margin: 0 10px; font-weight: bold; color: white; }
 
-    /* Section Titles */
-    section h2 { font-size: 1.8em; margin-bottom: 20px; position: relative; }
-    section h2::after { content: ''; width: 50px; height: 3px; background: #005b99; position: absolute; left: 0; bottom: -5px; }
+/* Section titles */
+section h2 { font-size: 1.8em; margin-bottom: 20px; position: relative; }
+section h2::after { content: ''; width: 50px; height: 3px; background: #005b99; position: absolute; bottom: -5px; left: 0; }
 
-    /* About */
-    #about { background: #fff; margin-top: -20px; padding-top: 60px; border-top-left-radius: 10px; border-top-right-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); }
+/* Content boxes */
+.job, .skill-group, .bug-report { background: #fff; margin-bottom: 20px; padding: 20px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
 
-    /* Experience & Skills */
-    .experience .job, .skill-group, .bug-report { background: #fff; margin-bottom: 20px; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-    .job h3, .bug-report h3, .skills h3 { font-size: 1.2em; color: #005b99; }
-    .job p, .bug-report p { font-style: italic; color: #666; margin-bottom: 10px; }
-    .skills ul { margin-bottom: 20px; padding-left: 20px; list-style: disc; }
-    .skills ul li { margin-bottom: 10px; line-height: 1.6; transition: all 0.3s ease; }
-    .skills ul li:hover { color: #007acc; transform: translateX(5px); }
-    ul { list-style: disc inside; }
+/* Skills */
+.skills h3 { color: #005b99; margin-top: 20px; }
+.skills ul { list-style: disc inside; padding-left: 10px; }
+.skills li { margin-bottom: 10px; transition: 0.3s; }
+.skills li:hover { color: #007acc; transform: translateX(5px); }
 
-    /* Sliders */
-    .slider-wrapper { position: relative; margin-bottom: 30px; }
-    .slider { overflow-x: auto; overflow-y: hidden; white-space: nowrap; -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; }
-    .slide-track { display: inline-flex; }
-    .slide-track img, .slide-track .placeholder {
-      width: 200px;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-right: 10px;
-      scroll-snap-align: start;
-      background: #e0e0e0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #888;
-      font-style: italic;
-      transition: transform 0.3s ease;
-      cursor: pointer;
-    }
-    .slide-track img:hover, .slide-track .placeholder:hover { transform: scale(1.05); }
-    .slider-button { position: absolute; top: 50%; transform: translateY(-50%); background: #005b99; color: #fff; border: none; padding: 10px; cursor: pointer; border-radius: 50%; z-index: 10; }
-    .slider-button.left { left: 0; }
-    .slider-button.right { right: 0; }
-    .slider::-webkit-scrollbar { height: 8px; }
-    .slider::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+/* Sliders */
+.slider-wrapper { position: relative; overflow: hidden; margin-bottom: 30px; }
+.slider { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; }
+.slide-track { display: flex; }
+.placeholder, .slide-track img {
+  width: 200px; height: 150px; background: #e0e0e0; border-radius: 8px;
+  margin-right: 10px; display: flex; align-items: center; justify-content: center; color: #555;
+  font-style: italic; scroll-snap-align: start; cursor: pointer; transition: transform 0.3s;
+}
+.placeholder:hover, .slide-track img:hover { transform: scale(1.05); }
+.slider-button { position: absolute; top: 50%; transform: translateY(-50%); background: #005b99; color: white; border: none; border-radius: 50%; padding: 10px; cursor: pointer; }
+.slider-button.left { left: 10px; }
+.slider-button.right { right: 10px; }
 
-    /* Modal Lightbox */
-    .modal { display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.8); }
-    .modal-content { margin:5% auto; width:80%; max-width:900px; background:#fff; padding:20px; border-radius:8px; overflow:hidden; }
-    .modal-content img { width: 100%; height: auto; border-radius: 8px; }
-    .close { position: absolute; top: 30px; right: 50px; color: #fff; font-size: 40px; font-weight: bold; cursor: pointer; }
+/* Modal */
+.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; }
+.modal-content { margin: 5% auto; width: 80%; background: white; padding: 20px; border-radius: 8px; }
+.close { position: absolute; top: 30px; right: 50px; font-size: 40px; color: white; cursor: pointer; }
+.modal-content img, .modal-content iframe { width: 100%; border-radius: 8px; }
 
-    /* Contact & Footer */
-    #contact p { margin-bottom: 10px; }
-    footer { text-align: center; font-size: 0.9em; color: #666; margin-top: 40px; }
-  </style>
+/* Footer */
+footer { text-align: center; font-size: 0.9em; margin-top: 40px; color: #666; }
+</style>
 </head>
 <body>
 
 <header>
-  <h1>Nguyen Tan Huy</h1>
-  <p>QA/QC Professional (Manual Testing)</p>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#experience">Experience</a>
-    <a href="#skills">Skills</a>
-    <a href="#certifications">Certifications</a>
-    <a href="#demos">Demos</a>
-    <a href="#bugreport">Bug Report</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<h1>Nguyen Tan Huy</h1>
+<p>QA/QC Professional (Manual Testing)</p>
+<nav>
+  <a href="#about">About</a>
+  <a href="#experience">Experience</a>
+  <a href="#skills">Skills</a>
+  <a href="#certifications">Certifications</a>
+  <a href="#demos">Demos</a>
+  <a href="#bugreport">Bug Report</a>
+  <a href="#contact">Contact</a>
+</nav>
 </header>
 
 <section id="about">
-  <h2>About Me</h2>
-  <p>
-    QA/QC Tester specializing in manual testing for games and multi-platform software.
-    Skilled in bug reporting, cross-team communication, and agile workflows.
-    Detail-driven, user-focused, and always committed to delivering high-quality products.
-  </p>
+<h2>About Me</h2>
+<p>QA/QC Tester specializing in manual testing for games and multi-platform software. Skilled in bug reporting, cross-team communication, and agile workflows. Detail-driven and committed to high-quality delivery.</p>
 </section>
 
 <section id="experience" class="experience">
-  <h2>Experience</h2>
-  <div class="job">
-    <h3>Game Tester – Product, Hexpion Studio</h3>
-    <p><em>Oct 2023 – Mar 2024</em></p>
-    <ul>
-      <li>Identified and reported critical game errors with developer-level detail.</li>
-      <li>Managed bug tracking & QA status using Trello and SourceTree.</li>
-      <li>Conducted gameplay & UX/UI testing; provided Unity Engine insights.</li>
-      <li>Researched and wrote comprehensive manual test cases.</li>
-    </ul>
-  </div>
-  <div class="job">
-    <h3>Manual Software Tester (Outsource), Spectaq Software Ltd</h3>
-    <p><em>Jun 2024 – Apr 2025</em></p>
-    <ul>
-      <li>Performed multi-platform manual testing (iOS, Android, WebApp) and API/WebSocket testing via Postman.</li>
-      <li>Developed & executed test cases in Testmo; captured evidence with OBS Studio & Veed.io.</li>
-      <li>Collaborated with clients in agile meetings to gather requirements and feedback.</li>
-      <li>Logged, tracked, and triaged bugs in Jira and Google Sheets for timely resolution.</li>
-    </ul>
-  </div>
+<h2>Experience</h2>
+<div class="job">
+<h3>Game Tester – Product, Hexpion Studio</h3>
+<p><em>Oct 2023 – Mar 2024</em></p>
+<ul>
+<li>Identified and reported critical game errors with developer-level detail.</li>
+<li>Managed bug tracking & QA status using Trello and SourceTree.</li>
+<li>Conducted gameplay & UX/UI testing; provided Unity Engine insights.</li>
+<li>Researched and wrote comprehensive manual test cases.</li>
+</ul>
+</div>
+<div class="job">
+<h3>Manual Software Tester (Outsource), Spectaq Software Ltd</h3>
+<p><em>Jun 2024 – Apr 2025</em></p>
+<ul>
+<li>Performed multi-platform manual testing (iOS, Android, WebApp) and API/WebSocket testing via Postman.</li>
+<li>Developed & executed test cases in Testmo; captured evidence with OBS Studio & Veed.io.</li>
+<li>Collaborated with clients in agile meetings to gather requirements and feedback.</li>
+<li>Logged, tracked, and triaged bugs in Jira and Google Sheets for timely resolution.</li>
+</ul>
+</div>
 </section>
 
 <section id="skills" class="skills">
-  <h2>Core Skills</h2>
-  <div class="skill-group">
-    <h3>Manual Testing</h3>
-    <ul>
-      <li>Design and execute detailed test cases, exploratory testing for UI/UX and functionality assurance.</li>
-      <li>Experienced in usability and functional testing of mobile and web applications.</li>
-    </ul>
-  </div>
-  <div class="skill-group">
-    <h3>Test Analysis & Design</h3>
-    <ul>
-      <li>Break down product features into testable units, create state transition diagrams.</li>
-      <li>Apply equivalence partitioning, boundary value analysis to generate effective input data sets.</li>
-    </ul>
-  </div>
-  <div class="skill-group">
-    <h3>API Testing</h3>
-    <ul>
-      <li>Validate REST and WebSocket APIs using Postman, ensuring data integrity and performance.</li>
-      <li>Simulate requests and analyze responses to verify server behavior and API robustness.</li>
-    </ul>
-  </div>
-  <div class="skill-group">
-    <h3>Exploratory Testing</h3>
-    <ul>
-      <li>Apply session-based testing techniques and Whittaker’s test tours to discover hidden issues.</li>
-    </ul>
-  </div>
-  <div class="skill-group">
-    <h3>Test Documentation</h3>
-    <ul>
-      <li>Create comprehensive test plans, detailed bug reports, and session reports.</li>
-      <li>Build reusable checklists and test suites for efficient regression testing.</li>
-    </ul>
-  </div>
-  <div class="skill-group">
-    <h3>Tools & Platforms</h3>
-    <ul>
-      <li>Bug tracking with Jira, Trello; test management with Testmo; evidence recording with OBS Studio and Veed.io.</li>
-      <li>Source control via SourceTree; game QA testing with Unity Engine.</li>
-    </ul>
-  </div>
+<h2>Core Skills</h2>
+<div class="skill-group"><h3>Manual Testing</h3><ul><li>Design and execute detailed test cases, exploratory testing for UI/UX assurance.</li><li>Experienced in usability and functional testing of mobile/web apps.</li></ul></div>
+<div class="skill-group"><h3>Test Analysis & Design</h3><ul><li>Break down product features into testable units, create state diagrams.</li><li>Apply equivalence partitioning, boundary value analysis.</li></ul></div>
+<div class="skill-group"><h3>API Testing</h3><ul><li>Validate REST/WebSocket APIs using Postman.</li><li>Simulate requests, verify server behavior and data integrity.</li></ul></div>
+<div class="skill-group"><h3>Exploratory Testing</h3><ul><li>Apply session-based exploratory testing techniques.</li></ul></div>
+<div class="skill-group"><h3>Test Documentation</h3><ul><li>Create test plans, detailed bug reports, session reports.</li><li>Build reusable checklists for regression testing.</li></ul></div>
+<div class="skill-group"><h3>Tools & Platforms</h3><ul><li>Bug tracking with Jira, Trello; test management with Testmo; evidence with OBS Studio & Veed.io.</li><li>Source control via SourceTree; game QA on Unity Engine.</li></ul></div>
+</section>
+
+<section id="certifications">
+<h2>Certifications</h2>
+<div class="slider-wrapper">
+<button class="slider-button left" onclick="slideLeft('certifications')">&#10094;</button>
+<div class="slider"><div class="slide-track">
+<div class="placeholder" onclick="openModal(this)" data-src="files/cert1.jpg">Certification 1</div>
+<div class="placeholder" onclick="openModal(this)" data-src="files/cert2.jpg">Certification 2</div>
+</div></div>
+<button class="slider-button right" onclick="slideRight('certifications')">&#10095;</button>
+</div>
+</section>
+
+<section id="demos">
+<h2>Project Demos</h2>
+<div class="slider-wrapper">
+<button class="slider-button left" onclick="slideLeft('demos')">&#10094;</button>
+<div class="slider"><div class="slide-track">
+<div class="placeholder" onclick="openModal(this)" data-type="pdf" data-src="files/demo1.pdf">Demo 1 (PDF)</div>
+<div class="placeholder" onclick="openModal(this)" data-type="pdf" data-src="files/demo2.pdf">Demo 2 (PDF)</div>
+</div></div>
+<button class="slider-button right" onclick="slideRight('demos')">&#10095;</button>
+</div>
+</section>
+
+<section id="bugreport">
+<h2>Sample Bug Report</h2>
+<div class="bug-report">
+<h3><strong>Title:</strong> [BXH][Network][Data] Leaderboard not updating</h3>
+<p><strong>Environment:</strong> Web/Apps | Version 1.0.0</p>
+<ul><li>Navigate to "BXH" section and observe.</li><li>Wait for an update or refresh page.</li></ul>
+<p><strong>Actual Result:</strong> "Cannot connect to server" error appears. Data does not update.</p>
+<p><strong>Expected Result:</strong> Data updates real-time without error unless server truly down.</p>
+<p><strong>Priority:</strong> High (affects user experience).</p>
+<p><strong>QA/QC:</strong> Nguyen Tan Huy</p>
+</div>
 </section>
 
 <section id="contact">
-  <h2>Contact</h2>
-  <p>Email: <a href="mailto:nguyentanhuy1096@gmail.com">nguyentanhuy1096@gmail.com</a></p>
-  <p>Phone: +84 936 329 796</p>
-  <p>LinkedIn: <a href="https://linkedin.com/in/nguyentanhuy" target="_blank">linkedin.com/in/nguyentanhuy</a></p>
+<h2>Contact</h2>
+<p>Email: <a href="mailto:nguyentanhuy1096@gmail.com">nguyentanhuy1096@gmail.com</a></p>
+<p>Phone: +84 936 329 796</p>
+<p>LinkedIn: <a href="https://linkedin.com/in/nguyentanhuy" target="_blank">linkedin.com/in/nguyentanhuy</a></p>
 </section>
 
 <footer>
-  <p>&copy; 2025 Nguyen Tan Huy | Hosted on GitHub Pages</p>
+<p>&copy; 2025 Nguyen Tan Huy | Hosted on GitHub Pages</p>
 </footer>
 
+<!-- Modal -->
+<div id="myModal" class="modal">
+<span class="close" onclick="closeModal()">&times;</span>
+<div id="modalContent" class="modal-content"></div>
+</div>
+
 <script>
-function slideLeft(sectionId) {
-  document.querySelector('#' + sectionId + ' .slider').scrollBy({left: -220, behavior: 'smooth'});
-}
-function slideRight(sectionId) {
-  document.querySelector('#' + sectionId + ' .slider').scrollBy({left: 220, behavior: 'smooth'});
-}
+function slideLeft(sectionId) { document.querySelector('#' + sectionId + ' .slider').scrollBy({left: -220, behavior: 'smooth'}); }
+function slideRight(sectionId) { document.querySelector('#' + sectionId + ' .slider').scrollBy({left: 220, behavior: 'smooth'}); }
 function openModal(element) {
-  var modal = document.getElementById("myModal");
-  var modalContent = document.getElementById("modalContent");
-  if (element.dataset.type === "pdf") {
-    modalContent.innerHTML = '<div style="height:90vh; overflow-y: auto;"><iframe src="' + element.dataset.src + '" style="width:100%; height:100%; border:none;"></iframe></div>';
-  } else {
-    modalContent.innerHTML = '<img src="https://via.placeholder.com/700x400?text=' + encodeURIComponent(element.innerText) + '" style="width:100%;height:auto;border-radius:8px;" />';
-  }
-  modal.style.display = "block";
+var modal = document.getElementById("myModal");
+var modalContent = document.getElementById("modalContent");
+if (element.dataset.type === "pdf") {
+modalContent.innerHTML = '<iframe src="' + element.dataset.src + '" style="width:100%;height:80vh;border:none;"></iframe>';
+} else {
+modalContent.innerHTML = '<img src="' + element.dataset.src + '" alt="Image">';
 }
-function closeModal() {
-  document.getElementById("myModal").style.display = "none";
+modal.style.display = "block";
 }
-// Clear cache and force reload
-window.addEventListener('unload', function() {
-  sessionStorage.clear();
-  localStorage.clear();
-});
+function closeModal() { document.getElementById("myModal").style.display = "none"; }
 (function() {
-  if (!window.location.search.includes('v=')) {
-    const now = new Date();
-    const version = `${now.getFullYear()}${now.getMonth()+1}${now.getDate()}${now.getHours()}${now.getMinutes()}`;
-    window.location.replace(window.location.pathname + '?v=' + version);
-  }
+if (!window.location.search.includes('v=')) {
+const now = new Date();
+const version = `${now.getFullYear()}${now.getMonth()+1}${now.getDate()}${now.getHours()}${now.getMinutes()}`;
+window.location.replace(window.location.pathname + '?v=' + version);
+}
 })();
 </script>
-
-<!-- Single Modal -->
-<div id="myModal" class="modal">
-  <span class="close" onclick="closeModal()">&times;</span>
-  <div id="modalContent" class="modal-content"></div>
-</div>
 
 </body>
 </html>
