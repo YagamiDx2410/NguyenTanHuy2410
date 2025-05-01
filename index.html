@@ -237,24 +237,35 @@ footer { text-align: center; font-size: 0.9em; margin-top: 40px; color: #666; }
 
 <!-- Modal -->
 <div id="myModal" class="modal">
-<span class="close" onclick="closeModal()">&times;</span>
-<div id="modalContent" class="modal-content"></div>
+  <span class="close" onclick="closeModal()">&times;</span>
+  <div id="modalContent" class="modal-content" style="overflow: auto; max-height: 90vh;"></div>
 </div>
 
 <script>
 function slideLeft(sectionId) { document.querySelector('#' + sectionId + ' .slider').scrollBy({left: -220, behavior: 'smooth'}); }
 function slideRight(sectionId) { document.querySelector('#' + sectionId + ' .slider').scrollBy({left: 220, behavior: 'smooth'}); }
 function openModal(element) {
-var modal = document.getElementById("myModal");
-var modalContent = document.getElementById("modalContent");
-if (element.dataset.type === "pdf") {
-modalContent.innerHTML = '<iframe src="' + element.dataset.src + '" style="width:100%;height:80vh;border:none;"></iframe>';
-} else {
-modalContent.innerHTML = '<div style="overflow-y: auto;"><img src="' + element.dataset.src + '" style="style="width:100%;height:80vh; display:block;" /></div>';
-}
+  const modal = document.getElementById("myModal");
+  const modalContent = document.getElementById("modalContent");
+  const src = encodeURI(element.dataset.src);  // ✅ Mã hóa đường dẫn tránh lỗi
+
+  if (element.dataset.type === "pdf") {
+    modalContent.innerHTML = `
+      <iframe src="${src}" style="width:100%; height:85vh; border:none;"></iframe>
+    `;
+  } else {
+    modalContent.innerHTML = `
+      <div style="overflow-x:auto;"><img src="${src}" style="height:80vh; display:block;"></div>
+    `;
+  }
 modal.style.display = "block";
+document.body.style.overflow = "hidden";
 }
-function closeModal() { document.getElementById("myModal").style.display = "none"; }
+function closeModal() 
+{
+  document.getElementById("myModal").style.display = "none"; 
+  document.body.style.overflow = "auto";
+}
 (function() {
 if (!window.location.search.includes('v=')) {
 const now = new Date();
