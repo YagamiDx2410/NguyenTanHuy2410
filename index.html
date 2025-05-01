@@ -36,7 +36,7 @@ section h2::after { content: ''; width: 50px; height: 3px; background: #005b99; 
 .skills li:hover { color: #007acc; transform: translateX(5px); }
 
 /* Sliders */
-.slider-wrapper { position: relative; overflow: hidden; margin-bottom: 30px; }
+.slider-wrapper { position: relative; overflow: hidden; margin-bottom: 30px; padding: 0 40px; /* Tạo không gian bên trái/phải cho button */ }
 .slider { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; }
 .slide-track { display: flex; }
 .placeholder, .slide-track img {
@@ -46,8 +46,8 @@ section h2::after { content: ''; width: 50px; height: 3px; background: #005b99; 
 }
 .placeholder:hover, .slide-track img:hover { transform: scale(1.05); }
 .slider-button { position: absolute; top: 50%; transform: translateY(-50%); background: #005b99; color: white; border: none; border-radius: 50%; padding: 10px; cursor: pointer;   z-index: 99; /* ✅ Giải quyết che khuất */pointer-events: auto; /* Nếu có hover layering */ }
-.slider-button.left { left: 10px;}
-.slider-button.right { right: 10px;}
+.slider-button.left { left: 0;}
+.slider-button.right { right: 0;}
 
 /* Modal */
 .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; }
@@ -130,7 +130,7 @@ footer { text-align: center; font-size: 0.9em; margin-top: 40px; color: #666; }
 <div class="slider-wrapper">
 <button class="slider-button left" onclick="slideLeft('certifications')">&#10094;</button>
 <div class="slider"><div class="slide-track">
-<div class="placeholder" onclick="openModal(this)" data-type="pdf" data-src="files/BACHELOR DEGREE OF ENGINEERING (January 2022).pdf">BACHELOR DEGREE OF ENGINEERING</div>
+<div class="placeholder" onclick="openModal(this)" data-type="pdf" data-src="files/BACHELOR DEGREE OF ENGINEERING (January 2022).pdf"><embed src="files/BACHELOR DEGREE OF ENGINEERING (January 2022).pdf#page=1" type="application/pdf"></div>
 <div class="placeholder" onclick="openModal(this)" data-src="files/cert2.jpg">Certification 2</div>
 </div></div>
 <button class="slider-button right" onclick="slideRight('certifications')">&#10095;</button>
@@ -142,7 +142,7 @@ footer { text-align: center; font-size: 0.9em; margin-top: 40px; color: #666; }
 <div class="slider-wrapper">
 <button class="slider-button left" onclick="slideLeft('demos')">&#10094;</button>
 <div class="slider"><div class="slide-track">
-<div class="placeholder" onclick="openModal(this)" data-src="images/Jira.jpg">Jira listBug</div>
+<div class="placeholder" onclick="openModal(this)" data-src="images/Jira.jpg"><img src="images/Jira.jpg" alt="Jira"></div>
 <div class="placeholder" onclick="openModal(this)" data-type="pdf" data-src="files/demo2.pdf">Demo 2 (PDF)</div>
   <div class="placeholder" onclick="openModal(this)" data-type="pdf" data-src="files/demo3.pdf">Demo 2 (PDF)</div>
   <div class="placeholder" onclick="openModal(this)" data-type="pdf" data-src="files/demo4.pdf">Demo 2 (PDF)</div>
