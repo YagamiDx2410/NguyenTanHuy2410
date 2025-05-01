@@ -51,7 +51,7 @@ section h2::after { content: ''; width: 50px; height: 3px; background: #005b99; 
 
 /* Modal */
 .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 100; }
-.modal-content { margin: 5% auto; width: 80%; background: white; padding: 20px; border-radius: 8px; }
+.modal-content { margin: 5% auto; width: 80%; background: white; padding: 20px; border-radius: 8px; z-index: 1000; }
 .close { position: absolute; top: 30px; right: 50px; font-size: 40px; color: white; cursor: pointer;}
 .modal-content img, .modal-content iframe { width: 100%; border-radius: 8px; }
 
@@ -149,15 +149,15 @@ footer { text-align: center; font-size: 0.9em; margin-top: 40px; color: #666; }
      <p><strong>Environment:</strong> Web/Apps | Version 1.0.0</p>
      <p><strong>Steps to Reproduce (EN):</strong></p>
      <ul>
-       <li>Navigate to "BXH" (Leaderboard) section.</li>
+       <p>Navigate to "BXH" (Leaderboard) section.</p>
        <p>Observe the displayed ranking data.</p>
-       <li>Wait for an update cycle or refresh the page.</li>
+       <p>Wait for an update cycle or refresh the page.</p>
      </ul>
      <p><strong>Steps to Reproduce (VN):</strong></p>
      <ul>
-       <li>Truy cập vào mục "BXH".</li>
-       <li>Quan sát dữ liệu xếp hạng hiển thị.</li>
-       <li>Chờ đến chu kỳ cập nhật hoặc tải lại trang.</li>
+       <p>Truy cập vào mục "BXH".</p>
+       <p>Quan sát dữ liệu xếp hạng hiển thị.</p>
+       <p>Chờ đến chu kỳ cập nhật hoặc tải lại trang.</p>
      </ul>
      <p><strong>Actual Result:</strong><br>"BXH" data does not update. Notification "Không thể kết nối máy chủ. Xin thử lại." appears.</p>
     <p><strong>Evidence:</strong><br>Picture or video link will be placed here.</p>
