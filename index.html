@@ -42,17 +42,17 @@ section h2::after { content: ''; width: 50px; height: 3px; background: #005b99; 
 .placeholder, .slide-track img {
   width: 200px; height: 150px; background: #e0e0e0; border-radius: 8px;
   margin-right: 10px; display: flex; align-items: center; justify-content: center; color: #555;
-  font-style: italic; scroll-snap-align: start; cursor: pointer; transition: transform 0.3s;
+  font-style: italic;/* scroll-snap-align: start; cursor: pointer; transition: transform 0.3s;*/
 }
 .placeholder:hover, .slide-track img:hover { transform: scale(1.05); }
-.slider-button { position: absolute; top: 50%; transform: translateY(-50%); background: #005b99; color: white; border: none; border-radius: 50%; padding: 10px; cursor: pointer; }
+.slider-button { position: absolute; top: 50%; transform: translateY(-50%); background: #005b99; color: white; border: none; border-radius: 50%; padding: 10px; cursor: pointer;   z-index: 999; /* ✅ Giải quyết che khuất */pointer-events: auto; /* Nếu có hover layering */ }
 .slider-button.left { left: 10px; }
-.slider-button.right { right: 10px; }
+.slider-button.right { right: 10px;}
 
 /* Modal */
 .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; }
 .modal-content { margin: 5% auto; width: 80%; background: white; padding: 20px; border-radius: 8px; }
-.close { position: absolute; top: 30px; right: 50px; font-size: 40px; color: white; cursor: pointer; }
+.close { position: absolute; top: 30px; right: 50px; font-size: 40px; color: white; cursor: pointer;}
 .modal-content img, .modal-content iframe { width: 100%; border-radius: 8px; }
 
 /* Footer */
