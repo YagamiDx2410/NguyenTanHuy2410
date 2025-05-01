@@ -176,12 +176,12 @@ footer { text-align: center; font-size: 0.9em; margin-top: 40px; color: #666; }
 
 </div>
 <div class="placeholder" onclick="openModal(this)" data-type="pdf" data-src="files/Toeic Certificate.pdf">
-  <embed src="files/Toeic Certificate.pdf#page=1" type="application/pdf" width="90%" height="90%">
+  <embed src="files/Toeic Certificate.pdf#page=1" type="application/pdf" style="pointer-events: none;">
 </div>
 <div class="placeholder" onclick="openModal(this)" data-type="pdf" data-src="files/Unity Game Developer certification (May 2023).pdf">
-  <embed src="files/Unity Game Developer certification (May 2023).pdf#page=1" type="application/pdf" width="90%" height="90%">
+  <embed src="files/Unity Game Developer certification (May 2023).pdf#page=1" type="application/pdf" style="pointer-events: none;">
 </div>
-<div class="placeholder" onclick="openModal(this)" data-src="images/SQLBasic.png"><img src="images/SQLBasic.png" alt="SQLBasic" width="50%" height="50%"></div>
+<div class="placeholder" onclick="openModal(this)" data-src="images/SQLBasic.png"><img src="images/SQLBasic.png" alt="SQLBasic" width="90%" height="90%"></div>
 </div>
 <button class="slider-button right" onclick="slideRight('certifications')">&#10095;</button>
 </div>
@@ -256,7 +256,7 @@ function openModal(element) {
     `;
   } else {
     modalContent.innerHTML = `
-      <div style="overflow-x:auto;"><img src="${src}" style="height:80vh; display:block;"></div>
+      <div style="overflow:auto;"><img src="${src}" ></div>
     `;
   }
 modal.style.display = "block";
