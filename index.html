@@ -45,7 +45,7 @@ section h2::after { content: ''; width: 50px; height: 3px; background: #005b99; 
   font-style: italic;/* scroll-snap-align: start; cursor: pointer; transition: transform 0.3s;*/
 }
 .placeholder:hover, .slide-track img:hover { transform: scale(1.05); }
-.slider-button { position: absolute; top: 50%; transform: translateY(-50%); background: #005b99; color: white; border: none; border-radius: 50%; padding: 10px; cursor: pointer;   z-index: 999; /* ✅ Giải quyết che khuất */pointer-events: auto; /* Nếu có hover layering */ }
+.slider-button { position: absolute; top: 50%; transform: translateY(-50%); background: #005b99; color: white; border: none; border-radius: 50%; padding: 10px; cursor: pointer;   z-index: 99; /* ✅ Giải quyết che khuất */pointer-events: auto; /* Nếu có hover layering */ }
 .slider-button.left { left: 10px;}
 .slider-button.right { right: 10px;}
 
