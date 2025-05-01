@@ -162,25 +162,55 @@ footer { text-align: center; font-size: 0.9em; margin-top: 40px; color: #666; }
   
 <div class="placeholder" 
      data-type="pdf" 
-     data-src="files/BACHELOR DEGREE OF ENGINEERING (January 2022).pdf"
+     data-src="files/BACHELOR%20DEGREE%20OF%20ENGINEERING%20(January%202022).pdf"
      onclick="openModal(this)"
      style="width: 200px; height: 150px; position: relative; overflow: hidden; cursor: pointer;">
 
-  <embed src="files/BACHELOR DEGREE OF ENGINEERING (January 2022).pdf#page=1" 
-         type="application/pdf" 
-         width="100%" 
-         height="100%" 
-         style="pointer-events: none;">
+  <div style="width: 100%; height: 100%; overflow: hidden;">
+    <embed 
+      src="files/BACHELOR%20DEGREE%20OF%20ENGINEERING%20(January%202022).pdf#page=1" 
+      type="application/pdf" 
+      width="100%" 
+      height="100%" 
+      style="pointer-events: none; border: none;">
+  </div>
 
 </div>
 
+<div class="placeholder" 
+     data-type="pdf" 
+     data-src="files/Toeic Certificate.pdf"
+     onclick="openModal(this)"
+     style="width: 200px; height: 150px; position: relative; overflow: hidden; cursor: pointer;">
 
-<div class="placeholder" onclick="openModal(this)" data-type="pdf" data-src="files/Toeic Certificate.pdf">
-  <embed src="files/Toeic Certificate.pdf#page=1" type="application/pdf" style="pointer-events: none;">
+  <div style="width: 100%; height: 100%; overflow: hidden;">
+    <embed 
+      src="files/Toeic Certificate.pdf#page=1" 
+      type="application/pdf" 
+      width="100%" 
+      height="100%" 
+      style="pointer-events: none; border: none;">
+  </div>
+
 </div>
-<div class="placeholder" onclick="openModal(this)" data-type="pdf" data-src="files/Unity Game Developer certification (May 2023).pdf">
-  <embed src="files/Unity Game Developer certification (May 2023).pdf#page=1" type="application/pdf" style="pointer-events: none;">
+
+<div class="placeholder" 
+     data-type="pdf" 
+     data-src="files/Unity Game Developer certification (May 2023).pdf"
+     onclick="openModal(this)"
+     style="width: 200px; height: 150px; position: relative; overflow: hidden; cursor: pointer;">
+
+  <div style="width: 100%; height: 100%; overflow: hidden;">
+    <embed 
+      src="files/Unity Game Developer certification (May 2023).pdf#page=1" 
+      type="application/pdf" 
+      width="100%" 
+      height="100%" 
+      style="pointer-events: none; border: none;">
+  </div>
+
 </div>
+
 <div class="placeholder" onclick="openModal(this)" data-src="images/SQLBasic.png"><img src="images/SQLBasic.png" alt="SQLBasic" width="90%" height="90%"></div>
 </div>
 <button class="slider-button right" onclick="slideRight('certifications')">&#10095;</button>
