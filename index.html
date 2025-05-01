@@ -238,7 +238,7 @@ var modalContent = document.getElementById("modalContent");
 if (element.dataset.type === "pdf") {
 modalContent.innerHTML = '<iframe src="' + element.dataset.src + '" style="width:100%;height:80vh;border:none;"></iframe>';
 } else {
-modalContent.innerHTML = '<div style="overflow-y: auto;"><img src="' + element.dataset.src + '" alt="Image">'" style="width :80vh; display:block;" /></div>';
+modalContent.innerHTML = '<div style="overflow-y: auto;"><img src="' + element.dataset.src + '" style="width :80vh; display:block;" /></div>';
 }
 modal.style.display = "block";
 }
