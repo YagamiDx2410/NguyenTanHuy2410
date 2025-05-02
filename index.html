@@ -57,6 +57,22 @@ section h2::after { content: ''; width: 50px; height: 3px; background: #005b99; 
 
 /* Footer */
 footer { text-align: center; font-size: 0.9em; margin-top: 40px; color: #666; }
+  
+/*testimonial*/
+  .testimonial {
+  background: #fff;
+  border-left: 5px solid #005b99;
+  padding: 20px;
+  margin-bottom: 20px;
+  font-style: italic;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.testimonial p:last-child {
+  font-style: normal;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
 </style>
 </head>
 <body>
@@ -69,7 +85,7 @@ footer { text-align: center; font-size: 0.9em; margin-top: 40px; color: #666; }
   <a href="#experience">Experience</a>
   <a href="#skills">Skills</a>
   <a href="#certifications">Certifications</a>
-  <a href="#demos">Demos</a>
+  <a href="#demos">Examples of my work</a>
   <a href="#bugreport">Bug Report</a>
   <a href="#contact">Contact</a>
   <a href="files/CV_QAQC_NguyenTanHuy.pdf" download>Download CV</a>
@@ -79,7 +95,15 @@ footer { text-align: center; font-size: 0.9em; margin-top: 40px; color: #666; }
 
 <section id="about">
 <h2>About Me</h2>
-<p>QA/QC Tester specializing in manual testing for games and multi-platform software. Skilled in bug reporting, cross-team communication, and agile workflows. Detail-driven and committed to high-quality delivery.</p>
+  <p>
+    I am a detail-oriented and curious software tester with 2 years of hands-on experience in manual testing across gaming and multi-platform applications. My background spans mobile apps, web platforms, and Unity-based games, where I focus on user experience, product functionality, and quality assurance workflows.
+  </p>
+  <p>
+    I combine structured test planning with exploratory techniques to ensure well-rounded test coverage. I’ve worked in Agile environments, communicated directly with clients, and collaborated with developers using tools such as Jira, Testmo, Trello, and Postman. I also leverage AI tools like ChatGPT to enrich test case generation and accelerate analytical thinking.
+  </p>
+  <p>
+    I aim to grow into a QA specialist who bridges the gap between user experience and engineering perspectives. My long-term goal is to take on a leadership role in QA, where I can guide junior testers and contribute to building a quality-first development culture.
+  </p>
 </section>
 
 <section id="experience" class="experience">
@@ -109,40 +133,54 @@ footer { text-align: center; font-size: 0.9em; margin-top: 40px; color: #666; }
 <section id="skills" class="skills">
 <h2>Core Skills</h2>
   
-<div class="skill-group">
-  <h3>Manual Testing</h3>
-  <ul>
-    <li>Design and execute detailed test cases, exploratory testing for UI/UX assurance.</li><li>Experienced in usability and functional testing of mobile/web apps.</li></ul></div>
-<div class="skill-group">
-  <h3>Test Analysis & Design</h3>
-  <ul>
-    <li>Break down product features into testable units, create state diagrams.</li><li>Apply equivalence partitioning, boundary value analysis.</li></ul></div>
-<div class="skill-group">
-  <h3>API Testing</h3>
-  <ul>
-    <li>Validate REST/WebSocket APIs using Postman.</li><li>Simulate requests, verify server behavior and data integrity.</li>
-  </ul>
-</div>
-<div class="skill-group">
-  <h3>Exploratory Testing</h3>
-  <ul>
-    <li>Apply session-based exploratory testing techniques.</li>
-  </ul>
-</div>
-<div class="skill-group">
-  <h3>Test Documentation</h3>
-  <ul>
-    <li>Create test plans, detailed bug reports, session reports.</li>
-    <li>Build reusable checklists for regression testing.</li>
-  </ul>
-</div>
-<div class="skill-group">
-  <h3>Tools & Platforms</h3>
-  <ul>
-    <li>Bug tracking with Jira, Trello; test management with Testmo; evidence with OBS Studio & Veed.io.</li>
-    <li>Source control via SourceTree; game QA on Unity Engine.</li>
-  </ul>
-</div>
+  <div class="skill-group">
+    <h3>Manual Testing</h3>
+    <ul>
+      <li>Executed functional and UI/UX testing across iOS, Android, and web platforms using real-user perspectives and structured checklists.</li>
+      <li>Created detailed manual test cases and applied exploratory techniques to detect non-obvious edge cases.</li>
+    </ul>
+  </div>
+
+  <div class="skill-group">
+    <h3>Test Analysis & Design</h3>
+    <ul>
+      <li>Decomposed product features into testable components using state diagrams and use case breakdowns.</li>
+      <li>Applied equivalence partitioning and boundary value analysis to design effective input data sets with high coverage.</li>
+    </ul>
+  </div>
+
+  <div class="skill-group">
+    <h3>API Testing</h3>
+    <ul>
+      <li>Validated REST and WebSocket APIs using Postman to verify data integrity, response structure, and error handling.</li>
+      <li>Simulated dynamic user scenarios by manipulating request headers and payloads for robust API coverage.</li>
+    </ul>
+  </div>
+
+  <div class="skill-group">
+    <h3>Exploratory Testing</h3>
+    <ul>
+      <li>Applied Whittaker’s tours and session-based testing to uncover hidden bugs in unstructured workflows.</li>
+      <li>Designed real-world user simulations to identify usability flaws under edge conditions (e.g. rapid inputs, unstable connections).</li>
+    </ul>
+  </div>
+
+  <div class="skill-group">
+    <h3>Test Documentation</h3>
+    <ul>
+      <li>Prepared test plans, bug reports, and session logs tailored to sprint cycles and stakeholder needs.</li>
+      <li>Created reusable checklists to streamline regression testing and reduce manual effort across releases.</li>
+    </ul>
+  </div>
+
+  <div class="skill-group">
+    <h3>Tools & Platforms</h3>
+    <ul>
+      <li>Managed test cases with Testmo; tracked bugs using Jira and Trello; captured issue evidence with OBS Studio and Veed.io.</li>
+      <li>Performed QA in Unity-based games; collaborated with devs through SourceTree version control.</li>
+      <li>Integrated AI tools like ChatGPT to ideate edge-case scenarios, optimize checklist coverage, and enhance analytical efficiency.</li>
+    </ul>
+  </div>
 <div class="skill-group">
   <h3>AI-assisted Productivity</h3>
   <ul>
@@ -162,13 +200,13 @@ footer { text-align: center; font-size: 0.9em; margin-top: 40px; color: #666; }
   
 <div class="placeholder" 
      data-type="pdf" 
-     data-src="files/BACHELOR%20DEGREE%20OF%20ENGINEERING%20(January%202022).pdf"
+     data-src="files/BACHELOR DEGREE OF ENGINEERING (January 2022).pdf"
      onclick="openModal(this)"
      style="width: 200px; height: 150px; position: relative; overflow: hidden; cursor: pointer;">
 
   <div style="width: 100%; height: 100%; overflow: hidden;">
     <embed 
-      src="files/BACHELOR%20DEGREE%20OF%20ENGINEERING%20(January%202022).pdf#page=1" 
+      src="files/BACHELOR DEGREE OF ENGINEERING (January 2022).pdf#page=1" 
       type="application/pdf" 
       width="100%" 
       height="100%" 
@@ -210,7 +248,38 @@ footer { text-align: center; font-size: 0.9em; margin-top: 40px; color: #666; }
   </div>
 
 </div>
+<div class="placeholder" 
+     data-type="pdf" 
+     data-src="files/MOS (excel).pdf"
+     onclick="openModal(this)"
+     style="width: 200px; height: 150px; position: relative; overflow: hidden; cursor: pointer;">
 
+  <div style="width: 100%; height: 100%; overflow: hidden;">
+    <embed 
+      src="files/MOS (excel).pdf#page=1" 
+      type="application/pdf" 
+      width="100%" 
+      height="100%" 
+      style="pointer-events: none; border: none;">
+  </div>
+
+</div>
+<div class="placeholder" 
+     data-type="pdf" 
+     data-src="files/MOS (word).pdf"
+     onclick="openModal(this)"
+     style="width: 200px; height: 150px; position: relative; overflow: hidden; cursor: pointer;">
+
+  <div style="width: 100%; height: 100%; overflow: hidden;">
+    <embed 
+      src="files/MOS (word).pdf#page=1" 
+      type="application/pdf" 
+      width="100%" 
+      height="100%" 
+      style="pointer-events: none; border: none;">
+  </div>
+
+</div>
 <div class="placeholder" onclick="openModal(this)" data-src="images/SQLBasic.png"><img src="images/SQLBasic.png" alt="SQLBasic" width="90%" height="90%"></div>
 </div>
 <button class="slider-button right" onclick="slideRight('certifications')">&#10095;</button>
@@ -218,7 +287,7 @@ footer { text-align: center; font-size: 0.9em; margin-top: 40px; color: #666; }
 </section>
 
 <section id="demos">
-<h2>Project Demos</h2>
+<h2>Examples of my work</h2>
 <div class="slider-wrapper">
 <button class="slider-button left" onclick="slideLeft('demos')">&#10094;</button>
 <div class="slider"><div class="slide-track">
@@ -228,6 +297,20 @@ footer { text-align: center; font-size: 0.9em; margin-top: 40px; color: #666; }
 </div></div>
 <button class="slider-button right" onclick="slideRight('demos')">&#10095;</button>
 </div>
+</section>
+  
+<section id="testimonials">
+  <h2>What Others Say</h2>
+
+  <div class="testimonial">
+    <p>"Huy is a fast learner who always thinks from the user’s perspective. His bug reports are clear, actionable, and often catch edge cases we didn’t think of."</p>
+    <p><strong>— Nint, Lead QA, Spectaq Software Ltd</strong></p>
+  </div>
+
+  <div class="testimonial">
+    <p>"He proactively contributed ideas to improve the player experience during game QA. I was impressed by how he documented gameplay issues using videos and step-by-step breakdowns."</p>
+    <p><strong>— Hoang Anh, Gameloft</strong></p>
+  </div>
 </section>
 
 <section id="bugreport">
@@ -253,6 +336,41 @@ footer { text-align: center; font-size: 0.9em; margin-top: 40px; color: #666; }
     <p><strong>Priority:</strong> High (Affects real-time ranking updates and user experience)</p>
     <p><strong>QA/QC:</strong> Nguyen Tan Huy</p>
    </div>
+  
+  <div class="bug-report">
+    <h3><strong>Title:</strong> [Leaderboard][Network][Data] – Leaderboard fails to update and shows connection error</h3>
+
+    <p><strong>Environment:</strong> Web & Mobile Apps | Version 1.0.0</p>
+
+    <p><strong>Preconditions:</strong> User is logged in; stable internet connection.</p>
+
+    <p><strong>Steps to Reproduce:</strong></p>
+    <ul>
+      <li>Navigate to the "BXH" (Leaderboard) section.</li>
+      <li>Observe the current ranking data.</li>
+      <li>Wait for the leaderboard to auto-refresh, or manually refresh the page.</li>
+    </ul>
+
+    <p><strong>Expected Result:</strong></p>
+    <ul>
+      <li>Leaderboard data should auto-update in real-time or upon manual refresh.</li>
+      <li>No error message should appear unless there's an actual server issue.</li>
+    </ul>
+
+    <p><strong>Actual Result:</strong></p>
+    <ul>
+      <li>Leaderboard data remains static and fails to refresh.</li>
+      <li>Error message displayed: "Không thể kết nối máy chủ. Xin thử lại." (Unable to connect to server. Please try again.)</li>
+    </ul>
+
+    <p><strong>Impact:</strong> Users cannot see updated rankings, affecting trust in competition transparency and real-time features.</p>
+
+    <p><strong>Severity:</strong> High</p>
+    <p><strong>Priority:</strong> High – Impacts core user engagement and fairness perception.</p>
+
+    <p><strong>Evidence:</strong> Screenshots and screen recording provided (available upon request).</p>
+    <p><strong>Reported by:</strong> Nguyen Tan Huy</p>
+  </div>
  </section>
 
 <section id="contact">
