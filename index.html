@@ -106,7 +106,7 @@ footer { text-align: center; font-size: 0.9em; margin-top: 40px; color: #666; }
   </p>
 </section>
 
-<section id="experience" class="experience">
+<section id="experience" class="skills">
 <h2>Experience</h2>
 <div class="job">
 <h3>Game Tester – Product, Hexpion Studio</h3>
@@ -313,54 +313,77 @@ footer { text-align: center; font-size: 0.9em; margin-top: 40px; color: #666; }
   </div>
 </section>
 
-<section id="bugreport">
-   <h2>Sample Bug Report</h2>
-   <div class="bug-report">
-     <h3><strong>TitleBug:</strong> [BXH][Network][Data] Leaderboard data not updating</h3>
-     <p><strong>Environment:</strong> Web/Apps | Version 1.0.0</p>
-     <p><strong>Steps to Reproduce (EN):</strong></p>
-     <ul>
-       <p>Navigate to "BXH" (Leaderboard) section.</p>
-       <p>Observe the displayed ranking data.</p>
-       <p>Wait for an update cycle or refresh the page.</p>
-     </ul>
+<div class="bug-report">
+  <h3><strong>Title:</strong> [Register][API][Validation] — API allows successful registration with invalid password</h3>
+
+  <p><strong>Environment:</strong> Web App | API Endpoint: /api/register | Build 2.1.3</p>
+
+  <p><strong>Preconditions:</strong> API endpoint is accessible; Postman or similar tool is configured.</p>
+
+  <p><strong>Steps to Reproduce:</strong></p>
+  <ul>
+    <li>Check the brand's password policy: passwords must contain both letters and numbers.</li>
+    <li>Open Postman (or similar API testing tool).</li>
+    <li>Send a registration request with an invalid password (e.g., <code>\"123456\"</code>).</li>
+    <li>Observe the response.</li>
+  </ul>
+
+  <p><strong>Expected Result:</strong></p>
+  <ul>
+    <li>The API should return a 400 Bad Request or equivalent error indicating password is invalid.</li>
+  </ul>
+
+  <p><strong>Actual Result:</strong></p>
+  <ul>
+    <li>The API returns a 200 OK status and successfully registers the user, bypassing password validation.</li>
+  </ul>
+
+  <p><strong>Impact:</strong> Security compliance is broken. Password policy enforcement is bypassed, allowing users to register with weak or easily guessable passwords.</p>
+
+  <p><strong>Severity:</strong> Critical</p>
+  <p><strong>Priority:</strong> High — Compromises user account security and regulatory requirements.</p>
+
+  <p><strong>Evidence:</strong> </p>
+
+  <!-- ✅ Placeholder to add image -->
+  <div class="screenshot" style="margin-top: 10px;">
+    <img src="Images/Postman.jpg" alt="API registration with invalid password" style="max-width:100%; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);">
+  </div>
+
+  <p><strong>QAQC:</strong> Nguyen Tan Huy</p>
+</div>
+
+  
+  <div class="bug-report">
+    <h3><strong>Title:</strong> [Leaderboard][Network][Data] – Leaderboard fails to update and shows connection error</h3>
+
+    <p><strong>Environment:</strong> Web & Apps | Version 1.0.0</p>
+
+    <p><strong>Preconditions:</strong> User is logged in; stable internet connection.</p>
+
+    <p><strong>Steps to Reproduce:</strong></p>
+    <ul>
+      <p>Navigate to the "BXH" (Leaderboard) section.</p>
+      <p>Observe the current ranking data.</p>
+      <p>Wait for the leaderboard to auto-refresh, or manually refresh the page.</p>
+    </ul>
+    
      <p><strong>Steps to Reproduce (VN):</strong></p>
      <ul>
        <p>Truy cập vào mục "BXH".</p>
        <p>Quan sát dữ liệu xếp hạng hiển thị.</p>
        <p>Chờ đến chu kỳ cập nhật hoặc tải lại trang.</p>
      </ul>
-     <p><strong>Actual Result:</strong><br>"BXH" data does not update. Notification "Không thể kết nối máy chủ. Xin thử lại." appears.</p>
-    <p><strong>Evidence:</strong><br>Picture or video link will be placed here.</p>
-    <p><strong>Expected Result:</strong><br>"BXH" data should update in real-time or upon refresh. No error should appear unless there's a real server issue.</p>
-    <p><strong>Priority:</strong> High (Affects real-time ranking updates and user experience)</p>
-    <p><strong>QA/QC:</strong> Nguyen Tan Huy</p>
-   </div>
-  
-  <div class="bug-report">
-    <h3><strong>Title:</strong> [Leaderboard][Network][Data] – Leaderboard fails to update and shows connection error</h3>
-
-    <p><strong>Environment:</strong> Web & Mobile Apps | Version 1.0.0</p>
-
-    <p><strong>Preconditions:</strong> User is logged in; stable internet connection.</p>
-
-    <p><strong>Steps to Reproduce:</strong></p>
-    <ul>
-      <li>Navigate to the "BXH" (Leaderboard) section.</li>
-      <li>Observe the current ranking data.</li>
-      <li>Wait for the leaderboard to auto-refresh, or manually refresh the page.</li>
-    </ul>
-
     <p><strong>Expected Result:</strong></p>
     <ul>
-      <li>Leaderboard data should auto-update in real-time or upon manual refresh.</li>
-      <li>No error message should appear unless there's an actual server issue.</li>
+      <p>Leaderboard data should auto-update in real-time or upon manual refresh.</p>
+      <p>No error message should appear unless there's an actual server issue.</p>
     </ul>
 
     <p><strong>Actual Result:</strong></p>
     <ul>
-      <li>Leaderboard data remains static and fails to refresh.</li>
-      <li>Error message displayed: "Không thể kết nối máy chủ. Xin thử lại." (Unable to connect to server. Please try again.)</li>
+      <p>Leaderboard data remains static and fails to refresh.</p>
+      <p>Error message displayed: "Không thể kết nối máy chủ. Xin thử lại." (Unable to connect to server. Please try again.)</p>
     </ul>
 
     <p><strong>Impact:</strong> Users cannot see updated rankings, affecting trust in competition transparency and real-time features.</p>
@@ -369,7 +392,7 @@ footer { text-align: center; font-size: 0.9em; margin-top: 40px; color: #666; }
     <p><strong>Priority:</strong> High – Impacts core user engagement and fairness perception.</p>
 
     <p><strong>Evidence:</strong> Screenshots and screen recording provided (available upon request).</p>
-    <p><strong>Reported by:</strong> Nguyen Tan Huy</p>
+    <p><strong>QA/QC:</strong> Nguyen Tan Huy</p>
   </div>
  </section>
 
