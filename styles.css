@@ -1,0 +1,64 @@
+/* Base Styles */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f9f9f9; color: #333; line-height: 1.6; }
+a { color: #007acc; text-decoration: none; }
+a:hover { text-decoration: underline; }
+header, section, footer { padding: 40px 20px; max-width: 1000px; margin: auto; }
+
+/* Header */
+header { background: #005b99; color: white; text-align: center; padding: 80px 20px 60px; }
+header h1 { font-size: 2.5em; }
+header p { font-size: 1.2em; margin-top: 10px; }
+nav { margin-top: 20px; }
+nav a { margin: 0 10px; font-weight: bold; color: white; }
+
+/* Section titles */
+section h2 { font-size: 1.8em; margin-bottom: 20px; position: relative; }
+section h2::after { content: ''; width: 50px; height: 3px; background: #005b99; position: absolute; bottom: -5px; left: 0; }
+
+/* Content boxes */
+.job, .skill-group, .bug-report { background: #fff; margin-bottom: 20px; padding: 20px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+
+/* Skills */
+.skills h3 { color: #005b99; margin-top: 20px; }
+.skills ul { list-style: disc inside; padding-left: 10px; }
+.skills li { margin-bottom: 10px; transition: 0.3s; }
+.skills li:hover { color: #007acc; transform: translateX(5px); }
+
+/* Sliders */
+.slider-wrapper { position: relative; overflow: hidden; margin-bottom: 30px; padding: 0 40px; }
+.slider { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; }
+.slide-track { display: flex; }
+.placeholder, .slide-track img {
+  width: 200px; height: 150px; background: #e0e0e0; border-radius: 8px;
+  margin-right: 10px; display: flex; align-items: center; justify-content: center; color: #555;
+  font-style: italic;
+}
+.placeholder:hover, .slide-track img:hover { transform: scale(1.05); }
+.slider-button { position: absolute; top: 50%; transform: translateY(-50%); background: #005b99; color: white; border: none; border-radius: 50%; padding: 10px; cursor: pointer; z-index: 99; pointer-events: auto; }
+.slider-button.left { left: 0; }
+.slider-button.right { right: 0; }
+
+/* Modal */
+.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; }
+.modal-content { margin: 5% auto; width: 80%; background: white; padding: 20px; border-radius: 8px; z-index: 1100; }
+.close { position: absolute; top: 30px; right: 50px; font-size: 40px; color: white; cursor: pointer;}
+.modal-content img, .modal-content iframe { width: 100%; border-radius: 8px; }
+
+/* Footer */
+footer { text-align: center; font-size: 0.9em; margin-top: 40px; color: #666; }
+
+/* Testimonials */
+.testimonial {
+  background: #fff;
+  border-left: 5px solid #005b99;
+  padding: 20px;
+  margin-bottom: 20px;
+  font-style: italic;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+.testimonial p:last-child {
+  font-style: normal;
+  font-weight: bold;
+  margin-top: 10px;
+}
