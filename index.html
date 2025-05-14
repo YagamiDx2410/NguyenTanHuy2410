@@ -4,12 +4,82 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>QA/QC Tester Portfolio</title>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <link rel="stylesheet" href="styles.css">
   <script src="script.js" defer></script>
 </head>
 <body>
-  <!-- Main content loaded from existing file -->
-  <!-- Placeholder: content will be restored below -->
-  <!-- Body content missing -->
+
+<header>
+  <h1>Nguyen Tan Huy</h1>
+  <p>QA/QC Professional (Manual Testing)</p>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#demos">Examples of my work</a>
+    <a href="#bugreport">Bug Report</a>
+    <a href="#contact">Contact</a>
+    <a href="files/CV_QAQC_NguyenTanHuy.pdf" download>Download CV</a>
+  </nav>
+</header>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p>I am a detail-oriented and curious software tester with 2 years of hands-on experience in manual testing across gaming and multi-platform applications...</p>
+</section>
+
+<section id="experience" class="experience">
+  <h2>Experience</h2>
+  <div class="job">
+    <h3>Game Tester – Product, Hexpion Studio</h3>
+    <p><em>Oct 2023 – Mar 2024</em></p>
+    <ul>
+      <li>Identified and reported critical game errors with developer-level detail.</li>
+      <li>Managed bug tracking & QA status using Trello and SourceTree.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="skills" class="skills">
+  <h2>Core Skills</h2>
+  <div class="skill-group">
+    <h3>Manual Testing</h3>
+    <ul>
+      <li>Executed functional and UI/UX testing across iOS, Android, and web platforms using structured checklists.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="certifications">
+  <h2>Certifications</h2>
+  <div class="slider-wrapper">
+    <button class="slider-button left" onclick="slideLeft('certifications')">&#10094;</button>
+    <div class="slider">
+      <div class="slide-track">
+        <div class="placeholder" data-type="pdf" data-src="files/BACHELOR.pdf" onclick="openModal(this)">Bachelor Degree</div>
+      </div>
+    </div>
+    <button class="slider-button right" onclick="slideRight('certifications')">&#10095;</button>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: <a href="mailto:nguyentanhuy1096@gmail.com">nguyentanhuy1096@gmail.com</a></p>
+</section>
+
+<div id="myModal" class="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <div id="modalContent" class="modal-content" style="overflow: auto; max-height: 90vh;"></div>
+</div>
+
+<footer>
+  <p>&copy; 2025 Nguyen Tan Huy | Hosted on GitHub Pages</p>
+</footer>
+
 </body>
 </html>
